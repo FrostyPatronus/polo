@@ -1,16 +1,87 @@
 <!DOCTYPE html>
 <html ng-app="main">
 <head>
-    <title>Polo</title>
-    
+  <title>Polo</title>
+
+  <link rel="stylesheet" type="text/css" href="./vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./css/index.css">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 <body>
+  
+  <div class="container-fluid">
+    <div class="header text-center">
+      <h1>
+        Water Polo Score board
+      </h1>
+    </div>
+
+    <div class="players container">
+
+      <div class="first row">
+        <div class="col-xs-4">
+            <button id="one">
+                One
+            </button>
+        </div>
+
+        <div class="col-xs-4">
+            <button id="one">
+                Six
+            </button>
+        </div>
+
+        <div class="col-xs-4">
+            <button id="five">
+                Five
+            </button>
+        </div>
+      </div>
+
+      <div class="second row">
+
+        <div class="col-xs-6">
+            <button id="two">
+                Two
+            </button>
+        </div>
+
+        <div class="col-xs-6">
+            <button id="one">
+                Four
+            </button>
+        </div>
+
+      </div>
+
+      <div class="third row">
+      
+        <div class="col-xs-12">
+            <button id="three">
+                Three
+            </button>
+        </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+
+
+  </div>
+  
+
     
-    
-    {{1 + 1}}
-    
-    <script src="./js/angular.min.js"></script>
-    <script src="./js/index.js"></script>
+  
+  
+  <script src="./vendor/jquery-3.1.0.min.js"></script>
+  <script src="./js/angular.min.js"></script>
+  <script src="./js/index.js"></script>
 </body>
 </html>
