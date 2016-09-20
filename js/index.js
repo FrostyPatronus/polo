@@ -16,7 +16,9 @@ buttons.dblclick(function (event){
     var button = $(event.target);
     var id = button.attr("id");
 
-    numbers[id] -= 3;
+    if (!(numbers[id] <= 2)){
+        numbers[id] -= 3;
+    }
 
     button.css("color", "red");
     button.html(numbers[id]);
