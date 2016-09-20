@@ -15,8 +15,8 @@ h1 {
 }
 
 button {
-    margin-bottom: 75px;
-    
+    display: block;
+    margin: 0 auto;
     width: 75px;
     height: 75px;
 
@@ -46,6 +46,8 @@ button {
 }
 
 .reset {
+    margin-bottom: 75px;
+    
     background-color: red;
     color: white;
 
