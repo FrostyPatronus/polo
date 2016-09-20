@@ -28,7 +28,18 @@ button {
 
 .players > div {
 
-    padding-right: 100px;
-    padding-left: 100px
+    padding-right: 10vw;
+    padding-left: 10vw;
 
 }
+
+#goal {
+
+    background-color: #006565;
+    color: white;
+    
+    margin-bottom: 3vh;
+    font-size: 12pt;
+
+}
+
