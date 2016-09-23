@@ -7,52 +7,41 @@ http://paletton.com/#uid=13i050kJS6KvW5fuP8MNdeqCnl7
 body {
 
     background-color: #1C1F24;
-
-}
-
-h1 {
     color: white;
-}
 
-button {
-    display: block;
-    margin: 0 auto;
-    width: 75px;
-    height: 75px;
-
-    font-size: 14pt;
 
 }
 
-.container div {
+input[type=text] {
+    color: black;
+
+}
+
+.header {
+    margin-bottom: 5vh;
+}
+
+/* THE LABELS UP TOP */
+.labels div{
+    text-align: center;
+    margin-bottom: 5vh;
+    padding-bottom: 2vh;
+
+    border-bottom: 5px solid red;
+
+}
+
+.position-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.buttons-div {
     text-align: center;
 }
 
-.players > div {
-
-    padding-right: 10vw;
-    padding-left: 10vw;
-
-}
-
-#goal {
-
-    background-color: #006565;
-    color: white;
-    
+.row {
     margin-bottom: 3vh;
-    font-size: 12pt;
-
-}
-
-.reset {
-    margin-bottom: 75px;
-    
-    background-color: red;
-    color: white;
-
-    font-size: 10pt;
-
-    width: 50px;
-    height: 20pt;
+    align-items: center;
 }

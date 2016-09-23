@@ -1,51 +1,33 @@
 var app = angular.module('main', []);
 
-var buttons = $(".players button");
-buttons.addClass("context-menu-one");
+app.controller('scoreboard', ['$scope', function($scope){
+    $scope.positions = 
+    [
+    "One",
+    "Two",
+    "Three",
+    "Four",
+    "Five",
+    "Six"
+    ];
 
-var numbers = {
-    one : 0,
-    two : 0,
-    three : 0,
-    four : 0,
-    five : 0,
-    six : 0
-};
+    $scope.scores = ["goals", "assists", "steals", "blocks"];
 
-buttons.dblclick(function (event){
-    var button = $(event.target);
-    var id = button.attr("id");
+}]);
 
-    if (!(numbers[id] <= 2)){
-        numbers[id] -= 3;
-    }
+$(document).ready(function(){
+    $("button").click(function(event){
+        var button = $(this);
+        var id = button.attr("id");
 
-    button.css("color", "red");
-    button.html(numbers[id]);
-});
+        var temp = id.split("-");
+        var position = temp[0];
+        var score = temp[1];
 
-buttons.click(function(event){
-    var button = $(event.target);
-    var id = button.attr("id");
+        
 
-    numbers[id]++;
 
-    button.css("color", "red");
-    button.html(numbers[id]);
+    });
 
 });
 
-var reset = '<button class="reset">Reset</button>';
-$(".first div, .second div, .third div").append(reset);
-
-$(".reset").click(function(event){
-
-    var reset = $(event.target);
-    var button = reset.prev();
-    var id = button.attr("id");
-
-    numbers[id] = 0;
-
-    button.html(numbers[id]);
-
-});

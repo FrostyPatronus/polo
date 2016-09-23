@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="main">
+<html>
 <head>
   <title>Polo</title>
 
@@ -7,86 +7,67 @@
   <link rel="stylesheet" type="text/css" href="./css/index.css">
   
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="./vendor/angular.min.js"></script>
 
 </head>
-<body>
+
+<body ng-app="main">
 
   <div class="container-fluid">
     <div class="header text-center">
       <h1>
         Water Polo Score Board
       </h1>
+
+      <input type="text" name="">
     </div>
 
-    <div class="players container">
-      
-      <div id="goal">
-        GOAL
-      </div>
+    <div class="container-fluid">
 
-      <div class="first row">
-        <div class="col-xs-4">
-            <button id="one">
-                One
-            </button>
+      <!-- LEFT HALF -->
+      <div class="players col-md-6">
+        
+        <div class="labels">
+          <div class="col-xs-4">Name</div>
+          <div class="col-xs-2">Goals</div>
+          <div class="col-xs-2">Assists</div>
+          <div class="col-xs-2">Steals</div>
+          <div class="col-xs-2">Blocks</div>
+        </div>
+        
+        <div id="scoreboard" ng-controller="scoreboard">
+          <!-- EACH OF THE ROWS  -->
+          <div class="row" ng-repeat="position in positions">
             
-        </div>
+            <!-- NAME PART -->
+            <div class="col-xs-4 position-name">
+              {{position}}
+            </div>
 
-        <div class="col-xs-4">
-            <button id="six">
-                Six
-            </button>
-        </div>
+            <!-- ALL THE BUTTONS -->
+            <div 
+            ng-repeat="i in scores" 
+            class="col-xs-2 buttons-div">
+              <button 
+              class="btn btn-default"
+              id="{{position | lowercase}}-{{i}}">0</button>  
+            </div>
 
-        <div class="col-xs-4">
-            <button id="five">
-                Five
-            </button>
-        </div>
-      </div>
-
-      <div class="second row">
-
-        <div class="col-xs-6">
-            <button id="two">
-                Two
-            </button>
-        </div>
-
-        <div class="col-xs-6">
-            <button id="four">
-                Four
-            </button>
+          </div>
         </div>
 
       </div>
-
-      <div class="third row">
-      
-        <div class="col-xs-12">
-            <button id="three">
-                Three
-            </button>
-        </div>
-
-      </div>
-
-
-
-
 
 
     </div>
-
-
   </div>
-  
 
     
   
   
   <script src="./vendor/jquery-3.1.0.min.js"></script>
-  <script src="./js/angular.min.js"></script>
   <script src="./js/index.js"></script>
+  <script src="./js/controller.js"></script>
+
 </body>
 </html>
