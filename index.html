@@ -37,11 +37,11 @@
         
         <div id="scoreboard" ng-controller="scoreboard">
           <!-- EACH OF THE ROWS  -->
-          <div class="row" ng-repeat="position in positions">
+          <div class="row" ng-repeat="row in rows">
             
             <!-- NAME PART -->
             <div class="col-xs-4 position-name">
-              {{position}}
+              {{row.name}}
             </div>
 
             <!-- ALL THE BUTTONS -->
@@ -49,8 +49,10 @@
             ng-repeat="i in scores" 
             class="col-xs-2 buttons-div">
               <button 
-              class="btn btn-default"
-              id="{{position | lowercase}}-{{i}}">0</button>  
+              class="btn btn-default indiv-btn"
+              ng-click="plusOne($parent.$index, i)">
+                {{row[i]}}
+              </button>  
             </div>
 
           </div>
@@ -67,7 +69,6 @@
   
   <script src="./vendor/jquery-3.1.0.min.js"></script>
   <script src="./js/index.js"></script>
-  <script src="./js/controller.js"></script>
 
 </body>
 </html>

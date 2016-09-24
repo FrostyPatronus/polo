@@ -8,13 +8,10 @@ body {
 
     background-color: #1C1F24;
     color: white;
-
-
 }
 
 input[type=text] {
     color: black;
-
 }
 
 .header {
@@ -31,10 +28,17 @@ input[type=text] {
 
 }
 
+/* The name part */
 .position-name {
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    text-transform: capitalize;
+}
+
+.buttons-div {
+    text-align: center;
 }
 
 .buttons-div {
@@ -44,4 +48,8 @@ input[type=text] {
 .row {
     margin-bottom: 3vh;
     align-items: center;
+}
+
+.indiv-btn {
+    font-size: 13pt;
 }
