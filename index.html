@@ -11,22 +11,24 @@
 
 </head>
 
-<body ng-app="main">
+<body ng-app="main" ng-controller="scoreboard as sb">
 
   <div class="container-fluid">
     <div class="header text-center">
       <h1>
         Water Polo Score Board
       </h1>
+      
+      <form>
+        <input type="text" placeholder="Player Name" ng-model="sb.name">
+      </form>
 
-      <input type="text" name="">
     </div>
 
     <div class="container-fluid">
 
       <!-- LEFT HALF -->
       <div class="players col-md-6">
-        
         <div class="labels">
           <div class="col-xs-4">Name</div>
           <div class="col-xs-2">Goals</div>
@@ -35,9 +37,9 @@
           <div class="col-xs-2">Blocks</div>
         </div>
         
-        <div id="scoreboard" ng-controller="scoreboard">
+        <div id="scoreboard">
           <!-- EACH OF THE ROWS  -->
-          <div class="row" ng-repeat="row in rows">
+          <div class="row" ng-repeat="row in sb.rows">
             
             <!-- NAME PART -->
             <div class="col-xs-4 position-name">
@@ -46,20 +48,22 @@
 
             <!-- ALL THE BUTTONS -->
             <div 
-            ng-repeat="i in scores" 
+            ng-repeat="score in sb.scores" 
             class="col-xs-2 buttons-div">
               <button 
               class="btn btn-default indiv-btn"
-              ng-click="plusOne($parent.$index, i)">
-                {{row[i]}}
+              ng-click="sb.plusOne($parent.$index, score)">
+                {{row[score]}}
               </button>  
             </div>
 
           </div>
         </div>
-
       </div>
-
+      
+      <div class="col-md-6">
+        
+      </div>
 
     </div>
   </div>

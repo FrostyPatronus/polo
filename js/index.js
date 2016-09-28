@@ -1,15 +1,15 @@
 var app = angular.module('main', []);
 
-app.controller('scoreboard', ['$scope', function($scope){
+app.controller('scoreboard', function(){
 
     // DEFINES rows TO BE THE INDIVIDUAL ROWS DATA IN THE VIEW
-    // $scope.rows[rowNumber].score
-    $scope.rows = [];
-    var rows = $scope.rows;
+    // this.rows[rowNumber].score
+    this.rows = [];
+    var rows = this.rows;
 
     var positions = ["one", "two", "three", "four", "five", "six"];
-    $scope.scores = ["goals", "assists", "steals", "blocks"];
-    var scores = $scope.scores;
+    this.scores = ["goals", "assists", "steals", "blocks"];
+    var scores = this.scores;
     // Populates the rows list
     $.each(positions, function(i, v){
         var dict = {};
@@ -20,27 +20,11 @@ app.controller('scoreboard', ['$scope', function($scope){
         rows.push(dict);
     });
 
-    $scope.plusOne = function(row, score){
+    this.plusOne = function(row, score){
         rows[row][score] += 1;
     };
 
-}]);
+    this.name = "";
 
-/*$(document).ready(function(){
-    $("button").click(function(event){
-        var button = $(this);
-        var id = button.attr("id");
-
-        var temp = id.split("-");
-        var position = temp[0];
-        var score = temp[1];
-
-        button.html(parseInt(button.html()) + 1);
-
-
-
-
-    });
-
-});*/
+});
 

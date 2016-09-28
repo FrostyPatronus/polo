@@ -41,15 +41,12 @@ input[type=text] {
     text-align: center;
 }
 
-.buttons-div {
-    text-align: center;
-}
-
+/* Each of the scoreboard rows*/
 .row {
     margin-bottom: 3vh;
     align-items: center;
 }
 
 .indiv-btn {
-    font-size: 13pt;
+    font-size: 14pt;
 }
