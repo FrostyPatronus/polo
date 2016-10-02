@@ -12,14 +12,13 @@
 </head>
 
 <body ng-app="main" ng-controller="scoreboard as sb">
-
   <div class="container-fluid">
     <div class="header text-center">
       <h1>
         Water Polo Score Board
       </h1>
       
-      <form>
+      <form ng-submit="sb.addPlayer()">
         <input type="text" placeholder="Player Name" ng-model="sb.name">
       </form>
 
@@ -29,21 +28,17 @@
 
       <!-- LEFT HALF -->
       <div class="players col-md-6">
-        <div class="labels">
-          <div class="col-xs-4">Name</div>
-          <div class="col-xs-2">Goals</div>
-          <div class="col-xs-2">Assists</div>
-          <div class="col-xs-2">Steals</div>
-          <div class="col-xs-2">Blocks</div>
-        </div>
-        
+
+        <ng-include src="'html/labels.html'">
+        </ng-include>
+          
         <div id="scoreboard">
-          <!-- EACH OF THE ROWS  -->
-          <div class="row" ng-repeat="row in sb.rows">
+          <!-- EACH OF THE ROWS -->
+          <div class="row" ng-repeat="player in sb.rows">
             
             <!-- NAME PART -->
             <div class="col-xs-4 position-name">
-              {{row.name}}
+              {{sb.positions[$index]}} : <strong> {{player.name}} <strong>
             </div>
 
             <!-- ALL THE BUTTONS -->
@@ -53,24 +48,26 @@
               <button 
               class="btn btn-default indiv-btn"
               ng-click="sb.plusOne($parent.$index, score)">
-                {{row[score]}}
-              </button>  
+                {{player[score]}}
+              </button>
             </div>
 
           </div>
         </div>
       </div>
       
-      <div class="col-md-6">
-        
+      <!-- RIGHT HALF -->
+      <div class="scores col-md-6">
+
+        <ng-include src="'html/labels.html'">
+        </ng-include>
+
       </div>
 
     </div>
   </div>
 
-    
-  
-  
+
   <script src="./vendor/jquery-3.1.0.min.js"></script>
   <script src="./js/index.js"></script>
 

@@ -29,14 +29,6 @@ input[type=text] {
 }
 
 /* The name part */
-.position-name {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    text-transform: capitalize;
-}
-
 .buttons-div {
     text-align: center;
 }
@@ -49,4 +41,8 @@ input[type=text] {
 
 .indiv-btn {
     font-size: 14pt;
+}
+
+strong {
+
 }
