@@ -31,43 +31,27 @@
       <!-- LEFT HALF -->
       <div class="players col-md-6">
 
-        <row-label>
-        </row-label>
+        <row-label></row-label>
           
         <div ng-controller="scoreboard as sb" id="scoreboard">
-          <!-- EACH OF THE ROWS -->
-          <div class="row" ng-repeat="player in sb.rows">
-            
-            <!-- NAME PART -->
-            <div class="col-xs-4 position-name">
-              {{sb.positions[$index]}} <strong> {{player.name}} </strong>
-            </div>
-
-            <!-- ALL THE BUTTONS -->
-            <div 
-            ng-repeat="score in sb.scores" 
-            class="col-xs-2 buttons-div">
-
-              <button 
-              class="btn btn-default indiv-btn"
-              ng-click="sb.plusOne($parent.$index, score)">
-                {{player[score]}}
-              </button>
-
-            </div>
-
-          </div>
+          <current-play></current-play>
         </div>
+
       </div>
       
       <!-- RIGHT HALF -->
       <div id="right-half" class="scores col-md-6">
 
-        <ng-include src="'html/labels.html'">
-        </ng-include>
-        <div ng-repeat="player in roster.players">
-          {{player.name}}
+        <row-label></row-label>
+
+        <div class="roster">
+          <div ng-repeat="player in roster.players">
+
+            {{player.name}}
+            
+          </div>
         </div>
+        
 
       </div>
 
@@ -76,7 +60,12 @@
 
 
   <script src="./vendor/jquery-3.1.0.min.js"></script>
+  <script src="./vendor/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
   <script src="./js/index.js"></script>
+
+  <script>
+    // $("div").draggable();
+  </script>
 
 </body>
 </html>

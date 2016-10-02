@@ -62,7 +62,7 @@ strong {
 
 /* RIGHT HALF DIV*/
 #right-half {
-    border: 1px solid red;
+    position: relative;
     height: 75vh;
     overflow-y: auto;
 }

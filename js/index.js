@@ -78,3 +78,11 @@ app.directive("rowLabel", function() {
         templateUrl: "html/labels.html"
     };
 });
+
+app.directive("currentPlay", function(){
+    return {
+        restrict: "E",
+        templateUrl: "html/current-play.html"
+
+    };
+});

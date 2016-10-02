@@ -1,0 +1,22 @@
+<!-- EACH OF THE ROWS -->
+<div class="row" ng-repeat="player in sb.rows">
+  
+  <!-- NAME PART -->
+  <div class="col-xs-4 position-name">
+    {{sb.positions[$index]}} <strong> {{player.name}} </strong>
+  </div>
+
+  <!-- ALL THE BUTTONS -->
+  <div 
+  ng-repeat="score in sb.scores" 
+  class="col-xs-2 buttons-div">
+
+    <button 
+    class="btn btn-default indiv-btn"
+    ng-click="sb.plusOne($parent.$index, score)">
+      {{player[score]}}
+    </button>
+
+  </div>
+
+</div>
