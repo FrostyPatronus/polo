@@ -45,7 +45,7 @@ strong {
    font-size: 12pt; 
 }
 
-/* The name part */
+/* Buttons */
 .buttons-div {
     text-align: center;
 }
@@ -53,6 +53,7 @@ strong {
 /* Each of the scoreboard rows*/
 .row {
     margin-bottom: 3vh;
+    text-align: center;
     align-items: center;
 }
 
@@ -62,7 +63,29 @@ strong {
 
 /* RIGHT HALF DIV*/
 #right-half {
-    position: relative;
+    
     height: 75vh;
     overflow-y: auto;
+}
+
+.roster {
+    font-size: 14pt;
+}
+
+.roster > div {
+    border-bottom: 1px solid white;
+}
+
+.player-name {
+    cursor: pointer;
+}
+
+/* ACTIVE CLASS*/
+
+.activeDrop {
+    border: 1px solid red;
+}
+
+.hoverDrop {
+    border: 3px solid white;
 }

@@ -19,8 +19,8 @@
       </h1>
       
       <div>
-        <form ng-submit="roster.addPlayer()">
-          <input type="text" placeholder="Player Name" ng-model="roster.name">
+        <form ng-submit="!roster.isDuped(roster.name) && roster.addPlayer()">
+          <input type="text" placeholder=" Player Name" ng-model="roster.name">
         </form>
       </div>
       
@@ -29,43 +29,37 @@
     <div class="container-fluid">
 
       <!-- LEFT HALF -->
-      <div class="players col-md-6">
+      <div id="left-half" class="players col-md-6">
 
         <row-label></row-label>
           
         <div ng-controller="scoreboard as sb" id="scoreboard">
-          <current-play></current-play>
+          <!-- EACH OF THE ROWS -->
+          <div ng-repeat="player in sb.rows">
+            
+            <div class="row">
+              <current-play></current-play>
+            </div>
+
+          </div>
+
         </div>
 
       </div>
-      
+
       <!-- RIGHT HALF -->
       <div id="right-half" class="scores col-md-6">
 
-        <row-label></row-label>
-
-        <div class="roster">
-          <div ng-repeat="player in roster.players">
-
-            {{player.name}}
-            
-          </div>
-        </div>
-        
+        <roster></roster>
 
       </div>
-
     </div>
   </div>
 
 
-  <script src="./vendor/jquery-3.1.0.min.js"></script>
-  <script src="./vendor/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
-  <script src="./js/index.js"></script>
-
-  <script>
-    // $("div").draggable();
-  </script>
+  <script src="vendor/jquery-3.1.0.min.js"></script>
+  <script src="vendor/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+  <script src="js/index.js"></script>
 
 </body>
 </html>

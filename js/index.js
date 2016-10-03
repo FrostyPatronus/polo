@@ -2,6 +2,8 @@ var app = angular.module('main', []);
 
 var evals = ["goals", "assists", "steals", "blocks"];
 var positions = ["1", "2", "3", "4", "5", "6"];
+var players = [];
+var playerNames = [];
 
 function initPlayerObj(name) {
     var player = {name: name};
@@ -13,18 +15,18 @@ function initPlayerObj(name) {
     return player;
 }
 
+/* 
+-----------------------
+-- LEFT HALF ----------
+-----------------------
+*/
+
 app.controller('scoreboard', function() {
     /* 
     SCOPE VARIABLES DEFINED: 
     rows: Each of the individual rows' data in the left side
     scores: Each of the evaluation points a player will be grade
     plusOne: Takes a row index and score value and increments it
-    */
-
-    /* 
-    -----------------------
-    -- LEFT HALF ----------
-    -----------------------
     */
 
     // DEFINES rows TO BE THE INDIVIDUAL ROWS DATA IN THE VIEW
@@ -38,8 +40,9 @@ app.controller('scoreboard', function() {
     var scores = this.scores;
 
     // Populates the rows list
+
     $.each(positions, function(i, v){
-        var dict = initPlayerObj("Heathen");
+        var dict = initPlayerObj("Empty");
         rows.push(dict);
     });
 
@@ -52,26 +55,31 @@ app.controller('scoreboard', function() {
 
 /* 
 -----------------------
--- RIGHT HALF ---------
+-- RIGHT HALF -----------
 -----------------------
 */
 
 app.controller("RosterController", function(){
     // ALL THE PLAYERS AND THEIR SCORES
-    this.players = [];
-    this.name = "fddd";
+    this.players = players;
+    this.name = "";
+    this.playerNames = playerNames;
 
-    this.addPlayer = function(){
-        if (!this.name)
-            return;
-        this.players.push(initPlayerObj(this.name));
-        this.name = "";
+    this.isDuped = function (val) {
+        return this.playerNames.indexOf(this.name) > -1;
+    };
+
+    this.addPlayer = function(){ 
+        if(this.name.length){
+            this.playerNames.push(this.name);
+            this.players.push(initPlayerObj(this.name));
+            this.name = "";
+        }
     };
 
 });
 
 // DIRECTIVES
-
 app.directive("rowLabel", function() {
     return {
         restrict: "E",
@@ -82,7 +90,42 @@ app.directive("rowLabel", function() {
 app.directive("currentPlay", function(){
     return {
         restrict: "E",
-        templateUrl: "html/current-play.html"
+        templateUrl: "html/current-play.html",
+        link: function($scope, element, attr){
 
+            $(element.children().eq(0)).droppable({
+                drop: function () {
+                    
+                },
+                classes: {
+                    "ui-droppable-hover": "hoverDrop",
+                    "ui-droppable-active": "activeDrop"
+                }, 
+                tolerance: "touch"
+            });
+
+        }
+    };
+});
+
+app.directive("roster", function(){
+    return {
+        restrict: "E",
+        templateUrl: "html/roster.html"
+    };
+});
+
+app.directive("player", function(){
+    return {
+        restrict: "E",
+        templateUrl: "html/player.html",
+        link: function ($scope, element, attr){
+            element = $(element.children().eq(0));
+            element.draggable({
+                helper: "clone",
+                appendTo: "body",
+                revert: "true"
+            });
+        }
     };
 });
