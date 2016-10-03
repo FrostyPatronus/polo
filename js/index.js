@@ -4,6 +4,7 @@ var evals = ["goals", "assists", "steals", "blocks"];
 var positions = ["1", "2", "3", "4", "5", "6"];
 var players = [];
 var playerNames = [];
+var rows = [];
 
 function initPlayerObj(name) {
     var player = {name: name};
@@ -33,8 +34,7 @@ app.controller('scoreboard', function() {
     // this.rows[rowNumber] = playerObj
     this.positions = positions;
 
-    this.rows = [];
-    var rows = this.rows;
+    this.rows = rows;
 
     this.scores = evals;
     var scores = this.scores;
@@ -87,6 +87,15 @@ app.directive("rowLabel", function() {
     };
 });
 
+function onDrop (event, ui) {
+    var element = $(ui.draggable);
+    var draggedIndex = element.attr("id");
+
+    var thisIndex = $(this).attr("id");
+
+    rows[thisIndex] = players[draggedIndex];
+}
+
 app.directive("currentPlay", function(){
     return {
         restrict: "E",
@@ -94,9 +103,7 @@ app.directive("currentPlay", function(){
         link: function($scope, element, attr){
 
             $(element.children().eq(0)).droppable({
-                drop: function () {
-                    
-                },
+                drop: onDrop,
                 classes: {
                     "ui-droppable-hover": "hoverDrop",
                     "ui-droppable-active": "activeDrop"

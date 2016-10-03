@@ -1,7 +1,7 @@
 <row-label></row-label>
 
 <div class="roster">
-  <div class="row" ng-repeat="player in roster.players">
+  <div class="row" ng-repeat="player in roster.players | filter:filterName">
 
     <player></player>
     

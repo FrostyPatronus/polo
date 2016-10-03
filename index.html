@@ -18,10 +18,14 @@
         Water Polo Score Board
       </h1>
       
-      <div>
-        <form ng-submit="!roster.isDuped(roster.name) && roster.addPlayer()">
-          <input type="text" placeholder=" Player Name" ng-model="roster.name">
+      <div class="top-inputs text-center">
+
+        <form class="col-md-6" ng-submit="!roster.isDuped(roster.name) && roster.addPlayer()">
+          <input type="text" placeholder=" Add a Player" ng-model="roster.name">
         </form>
+
+        <input type="text" placeholder=" Filter the roster" ng-model="filterName">
+
       </div>
       
     </div>
